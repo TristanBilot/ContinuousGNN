@@ -97,7 +97,9 @@ class GNN(nn.Module):
         x = self.m1(x)
 
         # Solve the initial value problem of the ODE.
-        c_aux = torch.zeros(x.shape).cuda()
+        c_aux = torch.zeros(x.shape)
+        if self.opt['cuda']:
+            c_aux.cuda()
         x = torch.cat([x,c_aux], dim=1)
         self.odeblock.set_x0(x)
 

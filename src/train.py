@@ -10,9 +10,7 @@ from trainer import Trainer
 from gnn import GNN
 from wgnn import WGNN
 import loader
-
-from orion.client import report_results
-
+import sys
 
 
 def main(opt):
